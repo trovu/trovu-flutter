@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,7 +45,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -85,11 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   hintText: 'Enter a Trovu query'),
             ),
             FlatButton(
-                color: Colors.blue,
-                textColor: Colors.white,
-                disabledColor: Colors.blue[100],
-                child: Icon(Icons.search),
-                onPressed: () {},
+              color: Colors.blue,
+              textColor: Colors.white,
+              disabledColor: Colors.blue[100],
+              child: Icon(Icons.search),
+              onPressed: () {
+                launch('https://heise.de');
+              },
             )
           ],
         ),
