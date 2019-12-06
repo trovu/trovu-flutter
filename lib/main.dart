@@ -37,6 +37,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   TextEditingController queryController = new TextEditingController();
+  TextEditingController languageController = new TextEditingController();
+  TextEditingController countryController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +91,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text('Settings'),
               ),
               body: ListView(
-                children: <Widget>[],
+                children: <Widget>[
+                  TextField(
+                    controller: languageController,
+                    decoration: InputDecoration(
+                        hintText: 'Language code'),
+                  ),
+                  TextField(
+                    controller: countryController,
+                    decoration: InputDecoration(
+                        hintText: 'Country code'),
+                  ),
+                ],
               ));
         },
       ),
