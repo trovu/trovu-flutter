@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: TextField(
                     controller: queryController,
+                    textInputAction: TextInputAction.send,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Enter a Trovu query'),
