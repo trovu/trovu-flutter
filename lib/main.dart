@@ -96,6 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _processQuery() {
-    launch('https://google.de');
+    launch('https://trovu.net/process#language=en&country=us&query=' +
+        queryController.text);
   }
 }
