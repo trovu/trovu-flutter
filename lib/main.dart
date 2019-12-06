@@ -85,10 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
       MaterialPageRoute<void>(
         builder: (BuildContext context) {
           return Scaffold(
-            appBar: AppBar(
-              title: Text('Settings'),
-            ),
-          );
+              appBar: AppBar(
+                title: Text('Settings'),
+              ),
+              body: ListView(
+                children: <Widget>[],
+              ));
         },
       ),
     );
