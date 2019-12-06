@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   disabledColor: Colors.blue[100],
                   child: Icon(Icons.search),
                   onPressed: () {
-                    launch('https://heise.de');
+                    _processQuery();
                   },
                 )
               ],
@@ -90,5 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  void _processQuery() {
+    launch('https://google.de');
   }
 }
