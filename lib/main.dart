@@ -65,19 +65,26 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Enter a Trovu query'),
-            ),
-            FlatButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              disabledColor: Colors.blue[100],
-              child: Icon(Icons.search),
-              onPressed: () {
-                launch('https://heise.de');
-              },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Enter a Trovu query'),
+                  ),
+                ),
+                FlatButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  disabledColor: Colors.blue[100],
+                  child: Icon(Icons.search),
+                  onPressed: () {
+                    launch('https://heise.de');
+                  },
+                )
+              ],
             )
           ],
         ),
