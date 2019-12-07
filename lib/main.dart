@@ -50,35 +50,33 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(icon: Icon(Icons.settings), onPressed: _settings),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Expanded(
-                  child: TextField(
-                    controller: queryController,
-                    textInputAction: TextInputAction.send,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Enter a Trovu query'),
-                  ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+              title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Expanded(
+                child: TextField(
+                  controller: queryController,
+                  textInputAction: TextInputAction.send,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Enter a Trovu query'),
                 ),
-                FlatButton(
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  disabledColor: Colors.blue[100],
-                  child: Icon(Icons.search),
-                  onPressed: () {
-                    _processQuery();
-                  },
-                )
-              ],
-            )
-          ],
-        ),
+              ),
+              FlatButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                disabledColor: Colors.blue[100],
+                child: Icon(Icons.search),
+                onPressed: () {
+                  _processQuery();
+                },
+              )
+            ],
+          )),
+        ],
       ),
     );
   }
