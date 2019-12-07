@@ -68,6 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
     this.githubUsernameController.text = this.githubUsername;
     this.languageController.text = this.language;
     this.countryController.text = this.country;
+
+    // Trigger redraw.
+    // TODO: Probably can be done cleaner.
+    setState(() { });
   }
 
   @override
