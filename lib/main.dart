@@ -111,6 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Expanded(
                 child: TextField(
                   controller: queryController,
+                  autofocus: true,
                   textInputAction: TextInputAction.send,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
