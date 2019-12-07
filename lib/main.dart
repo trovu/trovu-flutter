@@ -114,7 +114,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   autofocus: true,
                   textInputAction: TextInputAction.send,
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(),
                       hintText: 'Enter a Trovu query'),
                   onSubmitted: (text) {
                     _processQuery();
