@@ -100,6 +100,9 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ],
           )),
+          ListTile(
+            title: Text('Recent shortcuts:'),
+          )
         ],
       ),
     );
