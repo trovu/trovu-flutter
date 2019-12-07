@@ -75,30 +75,30 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           ListTile(
               title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Expanded(
-                    child: TextField(
-                      controller: queryController,
-                      textInputAction: TextInputAction.send,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Enter a Trovu query'),
-                      onSubmitted: (text) {
-                        _processQuery();
-                      },
-                    ),
-                  ),
-                  FlatButton(
-                    color: Colors.blue,
-                    textColor: Colors.white,
-                    disabledColor: Colors.blue[100],
-                    child: Icon(Icons.search),
-                    onPressed: () {
-                      _processQuery();
-                    },
-                  )
-                ],
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Expanded(
+                child: TextField(
+                  controller: queryController,
+                  textInputAction: TextInputAction.send,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Enter a Trovu query'),
+                  onSubmitted: (text) {
+                    _processQuery();
+                  },
+                ),
+              ),
+              FlatButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                disabledColor: Colors.blue[100],
+                child: Icon(Icons.search),
+                onPressed: () {
+                  _processQuery();
+                },
+              )
+            ],
           )),
         ],
       ),
