@@ -40,6 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
   String githubUsername = '';
   List<String> recentShortcuts = [];
 
+  _MyHomePageState() {
+    _getSettings();
+  }
+
   Future _setSettings() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -66,7 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _getSettings();
 
     final List<ListTile> recentShortcutsTiles = recentShortcuts.map(
       (String recentShortcut) {
