@@ -52,13 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Future _getSettings() async {
     final prefs = await SharedPreferences.getInstance();
 
-    print("Getting settings.");
-
     this.githubUsername = prefs.getString('githubUsername');
     this.language = prefs.getString('language');
     this.country = prefs.getString('country');
-
-    print(this.githubUsername);
 
     this.githubUsernameController.text = this.githubUsername;
     this.languageController.text = this.language;
