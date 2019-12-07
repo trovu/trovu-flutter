@@ -203,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
         _setSettings();
       }
     });
-    //launch(url);
-    print(url);
+    launch(url);
+    //print(url);
   }
 }
