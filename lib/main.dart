@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -180,6 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (keyword.isNotEmpty) {
         this.recentShortcuts.insert(0, keyword);
         this.recentShortcuts = this.recentShortcuts.toSet().toList();
+        this.recentShortcuts = this.recentShortcuts.sublist(0, min(this.recentShortcuts.length, 20));
       }
     });
     //launch(url);
