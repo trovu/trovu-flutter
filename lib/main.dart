@@ -63,6 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: 'Enter a Trovu query'),
+                      onSubmitted: (text) {
+                        _processQuery();
+                      },
                     ),
                   ),
                   FlatButton(
