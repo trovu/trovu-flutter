@@ -83,6 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(recentShortcut),
           onTap: () {
             queryController.text = recentShortcut;
+            // Hack to set cursor position to the end.
+            // From https://github.com/flutter/flutter/issues/11416#issuecomment-541435871
+            final selection = TextSelection.collapsed(offset: queryController.text.length); 
+            queryController.selection = selection;
           },
         );
       },
