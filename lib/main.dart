@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,8 +33,41 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController countryController = new TextEditingController();
   TextEditingController githubUsernameController = new TextEditingController();
 
+  String language;
+  String country;
+  String githubUsername;
+
+  Future _setSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    this.githubUsername = this.githubUsernameController.text;
+    this.language = this.languageController.text;
+    this.country = this.countryController.text;
+
+    prefs.setString('githubUsername', this.githubUsername);
+    prefs.setString('language', this.language);
+    prefs.setString('country', this.country);
+  }
+
+  Future _getSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    print("Getting settings.");
+
+    this.githubUsername = prefs.getString('githubUsername');
+    this.language = prefs.getString('language');
+    this.country = prefs.getString('country');
+
+    print(this.githubUsername);
+
+    this.githubUsernameController.text = this.githubUsername;
+    this.languageController.text = this.language;
+    this.countryController.text = this.country;
+  }
+
   @override
   Widget build(BuildContext context) {
+    _getSettings();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -89,6 +123,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     title: TextField(
                       controller: githubUsernameController,
                       decoration: InputDecoration(hintText: 'Github user name'),
+                      onChanged: (text) {
+                        _setSettings();
+                      },
                     ),
                   ),
                   ListTile(
