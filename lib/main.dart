@@ -126,9 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
           this.countryController.text +
           '&';
     } else {
-      paramString = 'github=' +
-          this.githubUsernameController.text +
-          '&';
+      paramString = 'github=' + this.githubUsernameController.text + '&';
     }
     final url = baseUrl + paramString + 'query=' + queryController.text;
     launch(url);
