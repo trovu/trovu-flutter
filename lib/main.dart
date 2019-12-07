@@ -72,6 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
       (String recentShortcut) {
         return ListTile(
           title: Text(recentShortcut),
+          onTap: () {
+            queryController.text = recentShortcut;
+          },
         );
       },
     ).toList();
