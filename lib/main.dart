@@ -36,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String language = '';
   String country = '';
   String githubUsername = '';
+  List<String> recentShortcuts = [];
 
   Future _setSettings() async {
     final prefs = await SharedPreferences.getInstance();
