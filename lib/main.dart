@@ -54,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     prefs.setString('githubUsername', this.githubUsername);
     prefs.setString('language', this.language);
     prefs.setString('country', this.country);
+    prefs.setStringList('recentShortcuts', this.recentShortcuts);
   }
 
   Future _getSettings() async {
@@ -62,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     this.githubUsername = prefs.getString('githubUsername');
     this.language = prefs.getString('language');
     this.country = prefs.getString('country');
+    this.recentShortcuts = prefs.getStringList('recentShortcuts') ?? [];
 
     this.githubUsernameController.text = this.githubUsername;
     this.languageController.text = this.language;
@@ -189,6 +191,7 @@ class _MyHomePageState extends State<MyHomePage> {
         this.recentShortcuts.insert(0, keyword);
         this.recentShortcuts = this.recentShortcuts.toSet().toList();
         this.recentShortcuts = this.recentShortcuts.sublist(0, min(this.recentShortcuts.length, 20));
+        _setSettings();
       }
     });
     //launch(url);
