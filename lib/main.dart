@@ -65,6 +65,18 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     _getSettings();
+
+    final List<ListTile> recentShortcutsTiles = recentShortcuts.map(
+      (String recentShortcut) {
+        return ListTile(
+          title: Text(recentShortcut),
+        );
+      },
+    ).toList();
+    final List<Widget> recentShortcutsTilesDivided = ListTile.divideTiles(
+      context: context,
+      tiles: recentShortcutsTiles,
+    ).toList();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -104,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ListTile(
             title: Text('Recent shortcuts:'),
           )
-        ],
+        ] + recentShortcutsTilesDivided,
       ),
     );
   }
@@ -163,11 +175,14 @@ class _MyHomePageState extends State<MyHomePage> {
     final String query = queryController.text;
     final String url = baseUrl + paramString + 'query=' + query;
 
-    final String keyword = query.split(' ').first;
-    if (keyword.isNotEmpty) {
-      this.recentShortcuts.insert(0, keyword);
-    }
-
-    launch(url);
+    setState(() {
+      final String keyword = query.split(' ').first;
+      if (keyword.isNotEmpty) {
+        this.recentShortcuts.insert(0, keyword);
+        this.recentShortcuts = this.recentShortcuts.toSet().toList();
+      }
+    });
+    //launch(url);
+    print(url);
   }
 }
