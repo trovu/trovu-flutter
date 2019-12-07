@@ -33,9 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController countryController = new TextEditingController();
   TextEditingController githubUsernameController = new TextEditingController();
 
-  String language;
-  String country;
-  String githubUsername;
+  String language = '';
+  String country = '';
+  String githubUsername = '';
 
   Future _setSettings() async {
     final prefs = await SharedPreferences.getInstance();
