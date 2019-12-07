@@ -159,7 +159,15 @@ class _MyHomePageState extends State<MyHomePage> {
     } else {
       paramString = 'github=' + this.githubUsernameController.text + '&';
     }
-    final url = baseUrl + paramString + 'query=' + queryController.text;
+
+    final String query = queryController.text;
+    final String url = baseUrl + paramString + 'query=' + query;
+
+    final String keyword = query.split(' ').first;
+    if (keyword.isNotEmpty) {
+      this.recentShortcuts.insert(0, keyword);
+    }
+
     launch(url);
   }
 }
