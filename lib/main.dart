@@ -39,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController queryController = new TextEditingController();
   TextEditingController languageController = new TextEditingController();
   TextEditingController countryController = new TextEditingController();
+  TextEditingController githubUsernameController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -92,15 +93,23 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               body: ListView(
                 children: <Widget>[
-                  TextField(
-                    controller: languageController,
-                    decoration: InputDecoration(
-                        hintText: 'Language code'),
+                  ListTile(
+                    title: TextField(
+                      controller: githubUsernameController,
+                      decoration: InputDecoration(hintText: 'Github user name'),
+                    ),
                   ),
-                  TextField(
-                    controller: countryController,
-                    decoration: InputDecoration(
-                        hintText: 'Country code'),
+                  ListTile(
+                    title: TextField(
+                      controller: languageController,
+                      decoration: InputDecoration(hintText: 'Language code'),
+                    ),
+                  ),
+                  ListTile(
+                    title: TextField(
+                      controller: countryController,
+                      decoration: InputDecoration(hintText: 'Country code'),
+                    ),
                   ),
                 ],
               ));
