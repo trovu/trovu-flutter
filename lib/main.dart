@@ -119,7 +119,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _processQuery() {
-    launch('https://trovu.net/process#language=en&country=us&query=' +
-        queryController.text);
+    final String baseUrl = 'https://trovu.net/process#';
+    String paramString;
+    if (this.githubUsernameController.text.isEmpty) {
+      paramString = 'language=' +
+          this.languageController.text +
+          '&country=' +
+          this.countryController.text +
+          '&';
+    } else {
+      paramString = 'github=' +
+          this.githubUsernameController.text +
+          '&';
+    }
+    final url = baseUrl + paramString + 'query=' + queryController.text;
+    launch(url);
   }
 }
